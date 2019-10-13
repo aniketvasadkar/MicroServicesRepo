@@ -8,10 +8,10 @@
 		<version>2.1.9.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sample.root</groupId>
-	<artifactId>SampleRoot</artifactId>
+	<groupId>com.micro.service</groupId>
+	<artifactId>MicroService4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SampleRoot</name>
+	<name>MicroService4</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
