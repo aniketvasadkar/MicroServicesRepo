@@ -14,8 +14,9 @@ public class HomeController {
 
     @RequestMapping(value = "home", method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON_VALUE})
     public List<String> getHomeResponse(){
-        List<String> x = new ArrayList<String>();
-        x.add("Hello Home !!!");
-        return x;
+        System.out.println("---------------Greeting from microservice 2---------------------------");
+        List<String> greet = new ArrayList<String>();
+        greet.add("Hello Home from Microservice 2 !!!");
+        return greet;
     }
 }
