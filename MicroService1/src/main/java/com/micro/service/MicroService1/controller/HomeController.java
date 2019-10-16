@@ -1,5 +1,4 @@
 package com.micro.service.MicroService1.controller;
-
 import com.micro.service.MicroService1.LoadBalanceConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
