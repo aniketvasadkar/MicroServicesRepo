@@ -24,18 +24,18 @@ public class HomeController {
     @Autowired
     RestTemplate template;
 
-    @Autowired
-    DiscoveryClient discoveryClient;
+   /* @Autowired
+    DiscoveryClient discoveryClient;*/
 
     @RequestMapping(value = "home", method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON_VALUE})
     public List<String> getHomeResponse(){
         List<String> greet = new ArrayList<String>();
     //    RestTemplate template = new RestTemplate();
        //greet =  template.getForObject("http://ms1Ribbon/home/home",List.class);
-        List<ServiceInstance> list = discoveryClient.getInstances("MicroService2MS");
+        /*List<ServiceInstance> list = discoveryClient.getInstances("MicroService2MS");
         System.out.println(list.size()+" -- "+list);
-        URI ms2Uri = list.get(0).getUri();
-        greet = new RestTemplate().getForObject(ms2Uri+"home/home/",List.class);
+        URI ms2Uri = list.get(0).getUri();*/
+        greet = template.getForObject("http://MICROSERVICE2MS/home/home/",List.class);
         return greet;
     }
 }
