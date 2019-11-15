@@ -36,6 +36,7 @@ public class HomeController {
         System.out.println(list.size()+" -- "+list);
         URI ms2Uri = list.get(0).getUri();*/
         greet = template.getForObject("http://MICROSERVICE2MS/home/home/",List.class);
+
         return greet;
     }
 }
