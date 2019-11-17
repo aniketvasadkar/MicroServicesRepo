@@ -25,7 +25,6 @@ public class TestService {
 
     @HystrixCommand(fallbackMethod = "testHystrixFallback")
     public String testHystrix(){
-        System.out.println(1/0);
         return "Hello Home from Microservice 2 service response!!!";
     }
 
