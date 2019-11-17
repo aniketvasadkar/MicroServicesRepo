@@ -33,6 +33,11 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-hystrix -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -63,7 +68,7 @@
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
-			<version>2.6.0</version>
+			<!--<version>2.6.0</version>-->
 		</dependency>
 
 
