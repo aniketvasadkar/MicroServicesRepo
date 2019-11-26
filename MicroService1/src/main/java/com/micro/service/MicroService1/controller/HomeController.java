@@ -1,5 +1,6 @@
 package com.micro.service.MicroService1.controller;
 import com.micro.service.MicroService1.LoadBalanceConfiguration;
+import com.micro.service.MicroService1.feign.Ms2FeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -24,6 +25,9 @@ public class HomeController {
     @Autowired
     RestTemplate template;
 
+    @Autowired
+    Ms2FeignClient ms2FeignClient;
+
    /* @Autowired
     DiscoveryClient discoveryClient;*/
 
@@ -35,7 +39,9 @@ public class HomeController {
         /*List<ServiceInstance> list = discoveryClient.getInstances("MicroService2MS");
         System.out.println(list.size()+" -- "+list);
         URI ms2Uri = list.get(0).getUri();*/
-        greet = template.getForObject("http://MICROSERVICE2MS/home/home/",List.class);
+        //greet = template.getForObject("http://MICROSERVICE2MS/home/home/",List.class);
+        greet = ms2FeignClient.getMs2HomeResponse();
+        System.out.println("-------after feign client call------------");
 
         return greet;
     }
