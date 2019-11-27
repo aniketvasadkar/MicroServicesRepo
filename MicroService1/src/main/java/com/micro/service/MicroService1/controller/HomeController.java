@@ -46,7 +46,6 @@ public class HomeController {
         //greet = template.getForObject("http://MICROSERVICE2MS/home/home/",List.class);
         greet = ms2FeignClient.getMs2HomeResponse();
         log.info("-------after feign client call------------");
-
         return greet;
     }
 }
