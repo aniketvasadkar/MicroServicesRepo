@@ -1,6 +1,8 @@
 package com.micro.service.MicroService1.controller;
 import com.micro.service.MicroService1.LoadBalanceConfiguration;
 import com.micro.service.MicroService1.feign.Ms2FeignClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -22,6 +24,8 @@ import java.util.List;
 @RibbonClient(name = "ms1Ribbon",configuration = LoadBalanceConfiguration.class)
 public class HomeController {
 
+    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+
     @Autowired
     RestTemplate template;
 
@@ -41,8 +45,7 @@ public class HomeController {
         URI ms2Uri = list.get(0).getUri();*/
         //greet = template.getForObject("http://MICROSERVICE2MS/home/home/",List.class);
         greet = ms2FeignClient.getMs2HomeResponse();
-        System.out.println("-------after feign client call------------");
-
+        log.info("-------after feign client call------------");
         return greet;
     }
 }
